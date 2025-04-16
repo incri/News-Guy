@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+google-api-python-client
+youtube-transcript-api
+faiss-cpu
+google-generativeai
+python-dotenv
+sqlalchemy
+pydantic
