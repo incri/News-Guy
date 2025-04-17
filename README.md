@@ -26,34 +26,6 @@ GEMINI_API_KEY=your_gemini_api_key
 uvicorn app.main:app --reload
 ```
 
-## Project Structure
-
-```
-news_guy/
-├── app/
-│   ├── __init__.py
-│   ├── main.py              # FastAPI application
-│   ├── config.py            # Configuration and environment variables
-│   ├── database/
-│   │   ├── __init__.py
-│   │   ├── models.py        # SQLAlchemy models
-│   │   └── session.py       # Database session
-│   ├── services/
-│   │   ├── __init__.py
-│   │   ├── youtube.py       # YouTube API integration
-│   │   ├── embeddings.py    # FAISS and embeddings
-│   │   └── gemini.py        # Gemini API integration
-│   └── api/
-│       ├── __init__.py
-│       └── routes.py        # API endpoints
-├── tests/
-│   └── __init__.py
-├── .env                     # Environment variables
-├── .gitignore
-├── requirements.txt
-└── README.md
-```
-
 ## Usage
 
 1. Start the server
