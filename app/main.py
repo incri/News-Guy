@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.api.routes import router
 
 app = FastAPI(
     title="News Guy",
@@ -22,6 +23,5 @@ async def root():
     return {"message": "Welcome to News Guy API"}
 
 
-# Import and include routers
-# from app.api.routes import router
-# app.include_router(router, prefix="/api/v1")
+# Include the router
+app.include_router(router, prefix="/api/v1")
