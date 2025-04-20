@@ -40,10 +40,13 @@ uvicorn app.main:app --reload
 
 Note: The `pyproject.toml` contains all project dependencies and configuration.
 
+
 ## Features
 - MCP context management
 - CLI integration
 - Video processing
 
+
 ## License
 MIT
+
