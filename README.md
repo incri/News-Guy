@@ -1,72 +1,49 @@
 # News Guy
 
-A system that fetches and processes Fireship YouTube videos, making them queryable through a Gemini-powered assistant in Cursor IDE.
+A system that fetches and processes Fireship YouTube videos, with a FastAPI MCP backend for AI-powered queries.
 
-## Setup
+## FastAPI MCP Implementation
 
-1. Create a virtual environment:
+- **MCP Server**: Handles context and state for AI interactions
+- **CLI Tools**: Directly interact with the MCP server from the command line
+- **Pydantic Models**: Type-safe API contracts
+
+### CLI Examples
+```bash
+newsguy query "What's new with Fireship?"
+newsguy latest --format=json
+```
+
+## Development Setup
+
+1. Create and activate virtual environment:
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-2. Install dependencies:
+2. Install dependencies using uv (faster alternative to pip):
 ```bash
-pip install -r requirements.txt
+uv pip install -e .
 ```
 
-3. Create a `.env` file with your API keys:
-```env
-YOUTUBE_API_KEY=your_youtube_api_key
-GEMINI_API_KEY=your_gemini_api_key
+3. Configure environment variables:
+```bash
+echo "YOUTUBE_API_KEY=your_key" >> .env
+echo "GEMINI_API_KEY=your_key" >> .env
 ```
 
-4. Run the application:
+4. Start the development server:
 ```bash
 uvicorn app.main:app --reload
 ```
 
-## Project Structure
+Note: The `pyproject.toml` contains all project dependencies and configuration.
 
-```
-news_guy/
-├── app/
-│   ├── __init__.py
-│   ├── main.py              # FastAPI application
-│   ├── config.py            # Configuration and environment variables
-│   ├── database/
-│   │   ├── __init__.py
-│   │   ├── models.py        # SQLAlchemy models
-│   │   └── session.py       # Database session
-│   ├── services/
-│   │   ├── __init__.py
-│   │   ├── youtube.py       # YouTube API integration
-│   │   ├── embeddings.py    # FAISS and embeddings
-│   │   └── gemini.py        # Gemini API integration
-│   └── api/
-│       ├── __init__.py
-│       └── routes.py        # API endpoints
-├── tests/
-│   └── __init__.py
-├── .env                     # Environment variables
-├── .gitignore
-├── requirements.txt
-└── README.md
-```
+## Features
+- MCP context management
+- CLI integration
+- Video processing
 
-## Usage
-
-1. Start the server
-2. Use the Cursor IDE integration or CLI to query videos
-3. Example queries:
-   - "What's new with Fireship?"
-   - "Tell me about the latest video on AI"
-   - "What did Fireship say about Python?"
-
-## Development
-
-- Python 3.8+
-- FastAPI for the backend
-- SQLite for local storage
-- FAISS for vector embeddings
-- Gemini API for LLM capabilities 
+## License
+MIT
